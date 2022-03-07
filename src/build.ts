@@ -9,7 +9,6 @@ const clientEntryPoints = [path.resolve(paths.src, "client", "main.tsx")];
 const serverEntryPoints = [path.resolve(paths.src, "server", "index.ts")];
 
 export async function esbuildWatch() {
-
   const changePaths: Set<string> = new Set();
   async function build() {
     console.log(changePaths);
@@ -22,7 +21,7 @@ export async function esbuildWatch() {
     changePaths.add(path);
     // debounceRebuild();
     console.log("rebuild....");
-    await _build()
+    await _build();
   });
 }
 
