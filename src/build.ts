@@ -15,17 +15,16 @@ export async function esbuildWatch() {
   }
   const debounceRebuild = () => debounce(_build, 300, { leading: true });
 
-  const watcher = chokidar.watch(watchPattern, { ignoreInitial: true });
+  const watcher = chokidar.watch(watchPattern, { ignoreInitial: true});
   watcher.on("all", async (event, path) => {
-    console.log(event, path);
+    console.log(`rebuild: ${event} - ${path}`);
     changePaths.add(path);
-    // debounceRebuild();
-    console.log("rebuild....");
-    await _build();
+    debounceRebuild();
   });
 }
 
 const build = async () => {
+  await _build()
   await esbuildWatch();
 };
 
