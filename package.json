@@ -1,6 +1,6 @@
 {
   "name": "oapp-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Cli used for oapp",
   "main": "index.js",
   "scripts": {
